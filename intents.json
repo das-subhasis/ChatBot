@@ -1,6 +1,6 @@
 {"intents": [
         {"tag": "greeting",
-         "patterns": ["Hi there", "How are you", "Is anyone there?","Hey","Konnichiwa", "Hello", "Good day", "Hi"],
+         "patterns": ["Hi there", "How are you", "Is anyone there?","Hey","Hola", "Hello", "Good day", "Hi", "Nice to meet you"],
          "responses": ["Hello, thanks for asking", "Good to see you again", "Hi there, how can I help?", "How can I assist you today?"],
          "context": [""]
         },
@@ -19,11 +19,988 @@
          "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand"],
          "context": [""]
         },
+        {"tag": "fillers",
+         "patterns": ["ok", "hmm", "yeah", "uhhuh", "well"],
+         "responses": ["I can guide you through Adverse drug reaction list, Blood pressure tracking, Hospitals and Pharmacies", "Offering support for Adverse drug reaction, Blood pressure, Hospitals and Pharmacies"],
+         "context": [""]
+        },
         {"tag": "options",
          "patterns": ["How you could help me?", "What you can do?", "What help you provide?", "How you can be helpful?", "What support is offered"],
          "responses": ["I can guide you through Adverse drug reaction list, Blood pressure tracking, Hospitals and Pharmacies", "Offering support for Adverse drug reaction, Blood pressure, Hospitals and Pharmacies"],
          "context": [""]
-        }
+        },
+        {"tag": "adverse_drug",
+         "patterns": ["How to check Adverse drug reaction?", "Open adverse drugs module", "Give me a list of drugs causing adverse behavior", "List all drugs suitable for patient with adverse reaction", "Which drugs dont have adverse reaction?" ],
+         "responses": ["Navigating to Adverse drug reaction module"],
+         "context": [""]
+        },
+        {"tag": "blood_pressure",
+         "patterns": ["Open blood pressure module", "Task related to blood pressure", "Blood pressure data entry", "I want to log blood pressure results", "Blood pressure data management" ],
+         "responses": ["Navigating to Blood Pressure module"],
+         "context": [""]
+        },
+        {"tag": "blood_pressure_search",
+         "patterns": ["I want to search for blood pressure result history", "Blood pressure for patient", "Load patient blood pressure result", "Show blood pressure results for patient", "Find blood pressure results by ID" ],
+         "responses": ["Please provide Patient ID", "Patient ID?"],
+         "context": ["search_blood_pressure_by_patient_id"]
+        },
+        {"tag": "search_blood_pressure_by_patient_id",
+         "patterns": [],
+         "responses": ["Loading Blood pressure result for Patient"],
+         "context": [""]
+        },
+        {"tag": "pharmacy_search",
+         "patterns": ["Find me a pharmacy", "Find pharmacy", "List of pharmacies nearby", "Locate pharmacy", "Search pharmacy" ],
+         "responses": ["Please provide pharmacy name"],
+         "context": ["search_pharmacy_by_name"]
+        },
+        {"tag": "search_pharmacy_by_name",
+         "patterns": [],
+         "responses": ["Loading pharmacy details"],
+         "context": [""]
+        },
+        {"tag": "hospital_search",
+         "patterns": ["Lookup for hospital", "Searching for hospital to transfer patient", "I want to search hospital data", "Hospital lookup for patient", "Looking up hospital details" ],
+         "responses": ["Please provide hospital name or location"],
+         "context": ["search_hospital_by_params"]
+        },
+        {"tag": "search_hospital_by_params",
+         "patterns": [],
+         "responses": ["Please provide hospital type"],
+         "context": ["search_hospital_by_type"]
+        },
+        {"tag": "search_hospital_by_type",
+         "patterns": [],
+         "responses": ["Loading hospital details"],
+         "context": [""]
+        },
+        {"tag": "medication_reminder",
+          "patterns": ["Set medication reminder", "Remind me to take my medication", "Schedule medication reminders"],
+          "responses": ["Sure, please provide the medication name and dosage", "Let me know the frequency and time for the reminder"],
+          "context": ["medication_reminder_info"]
+        },
+        {"tag": "medication_reminder_info",
+          "patterns": [],
+          "responses": ["Great, your medication reminder has been set!"],
+          "context": [""]
+        },
+        {"tag": "nutrition_tracker",
+          "patterns": ["Log my food intake", "Track my calories", "Monitor my diet", "Nutrition tracking"],
+          "responses": ["Sure, let's start by adding the food items you consumed", "Please provide the details of your meal"],
+          "context": ["nutrition_tracker_info"]
+        },
+        {"tag": "nutrition_tracker_info",
+          "patterns": [],
+          "responses": ["Thanks for logging your food intake!"],
+          "context": [""]
+        },
+        {"tag": "exercise_tracker",
+          "patterns": ["Track my workouts", "Log my exercise routine", "Exercise tracking"],
+          "responses": ["Sure, let's start by adding your exercise details", "Please provide the type of exercise and duration"],
+          "context": ["exercise_tracker_info"]
+        },
+        {"tag": "exercise_tracker_info",
+          "patterns": [],
+          "responses": ["Great job on your workout today!"],
+          "context": [""]
+        },
+        {"tag": "appointments",
+          "patterns": ["Schedule an appointment", "Book a doctor's appointment", "Cancel my appointment", "View upcoming appointments", "Reschedule my appointment"],
+          "responses": ["Navigating to Appointments module"],
+          "context": [""]
+        },
+        {"tag": "medical_history",
+          "patterns": ["View my medical history", "Update my medical records", "View lab results", "Medical records management", "Request medical records"],
+          "responses": ["Navigating to Medical History module"],
+          "context": [""]
+        },
+        {"tag": "symptom_checker",
+          "patterns": ["Check symptoms", "Symptom diagnosis", "What's causing my symptoms?", "Symptom tracker", "I'm not feeling well"],
+          "responses": ["Navigating to Symptom Checker module"],
+          "context": [""]
+        },
+        {"tag": "emergency",
+          "patterns": ["Call emergency services", "Emergency assistance", "I need help urgently", "Emergency contact information", "What to do in an emergency"],
+          "responses": ["Please dial your local emergency services number"],
+          "context": [""]
+        },
+        {"tag": "insurance",
+          "patterns": ["Insurance information", "Am I covered by my insurance?", "How much does my insurance cover?", "Insurance claims", "Insurance policy details"],
+          "responses": ["Navigating to Insurance module"],
+          "context": [""]
+        },
+        {"tag": "data_preprocessing",
+          "patterns": ["What is data preprocessing?", "Why is data preprocessing important?", "How to do data preprocessing?"],
+          "responses": ["Data preprocessing is the process of cleaning, transforming, and preparing raw data for analysis. It is important because it can improve the accuracy and efficiency of machine learning models. There are several techniques for data preprocessing, including data cleaning, data transformation, and data integration."],
+          "context": ""
+        },
+        {"tag": "supervised_learning",
+          "patterns": ["What is supervised learning?", "How does supervised learning work?", "What are some examples of supervised learning?"],
+          "responses": ["Supervised learning is a type of machine learning where the algorithm is trained on a labeled dataset. The algorithm learns to predict the output variable based on the input variables. The labeled dataset consists of input/output pairs, and the algorithm learns to map the inputs to the outputs. Examples of supervised learning include classification and regression problems."],
+          "context": ""
+        },
 
+        {"tag": "unsupervised_learning",
+          "patterns": ["What is unsupervised learning?", "How does unsupervised learning work?", "What are some examples of unsupervised learning?"],
+          "responses": ["Unsupervised learning is a type of machine learning where the algorithm is trained on an unlabeled dataset. The algorithm learns to find patterns and relationships in the data without being given any specific output to predict. Examples of unsupervised learning include clustering and anomaly detection."],
+          "context": ""
+        },
+
+        {"tag": "model_evaluation",
+          "patterns": ["What is model evaluation?", "How to evaluate the performance of a machine learning model?", "What are some metrics for model evaluation?"],
+          "responses": ["Model evaluation is the process of determining how well a machine learning model performs on a given dataset. There are several metrics for model evaluation, including accuracy, precision, recall, F1 score, and ROC AUC score. These metrics can be used to compare different models and to select the best model for a given task."],
+          "context": ""
+        },
+
+        {"tag": "feature_engineering",
+          "patterns": ["What is feature engineering?", "Why is feature engineering important?", "How to do feature engineering?"],
+          "responses": ["Feature engineering is the process of creating new features from existing data to improve the performance of a machine learning model. It is important because it can help the model to better capture the underlying patterns in the data. Feature engineering involves techniques such as feature scaling, one-hot encoding, and dimensionality reduction."],
+          "context": ""
+        },
+        {"tag": "data_visualization",
+          "patterns": ["How can I visualize my data?"],
+          "responses": ["There are several tools available for data visualization, including matplotlib, ggplot, and Tableau."],
+          "context": ""
+        },
+        {"tag": "data_cleaning",
+          "patterns": ["How do I clean my data?"],
+          "responses": ["Data cleaning can involve removing missing values, correcting errors, and handling outliers. There are several libraries in Python, such as Pandas and NumPy, that can help with data cleaning."],
+          "context": ""
+        },
+        {"tag": "machine_learning",
+          "patterns": ["What is machine learning?"],
+          "responses": ["Machine learning is a subset of artificial intelligence that involves training algorithms to make predictions or decisions based on data."],
+          "context": ""
+        },
+        {"tag": "deep_learning",
+          "patterns": ["What is deep learning?"],
+          "responses": ["Deep learning is a subset of machine learning that uses artificial neural networks with multiple layers to process complex data."],
+          "context": ""
+        },
+        {"tag": "data_engineering",
+          "patterns": ["What is data engineering?"],
+          "responses": ["Data engineering involves the design, development, and maintenance of systems and processes for collecting, storing, and processing large volumes of data."],
+          "context": ""
+        },
+
+        {"tag": "creator",
+          "patterns": ["Who created you?", "Who is your creator?", "Who made you?", "Who programmed you?"],
+          "responses": ["I was created by Subhasis, a student and tech enthusiast, to help people with their questions and provide information on various topics."],
+          "context": ""
+        },
+
+        {"tag": "identity",
+          "patterns": ["What is your name?", "What should I call you?", "Do you have a name?"],
+          "responses": ["My name is Erika, nice to meet you! I was created by Subhasis, a student and tech enthusiast, to help people with their questions and provide information on various topics."],
+          "context": ""
+        },
+
+        {"tag": "chatbot_identity",
+          "patterns": ["Who are you?", "What is your name?", "Who created you?", "What are you?"],
+          "responses": ["I am Erika a ChatBot, a virtual assistant created by Subhasis, a student and tech enthusiast."],
+          "context": [""]
+        },
+
+        {"tag": "about",
+          "patterns": ["Tell me about yourself", "Who are you?"],
+          "responses": ["I am Erika ChatBot, created by Subhasis, a student and tech enthusiast. I am here to help you with any questions or problems you may have."],
+          "context": ""
+        },
+
+        {"tag": "search_place",
+          "patterns": ["What are some top places to visit in India?", "Suggest some tourist destinations in India"],
+          "responses": ["India is a diverse and beautiful country with many amazing places to visit. Some of the top tourist destinations in India are the Taj Mahal in Agra, the beaches of Goa, the backwaters of Kerala, the Himalayas in northern India, and the ancient city of Varanasi. Would you like me to provide more information about any of these places?"],
+          "context": ""
+        },
+
+        {"tag": "search_country",
+          "patterns": ["What are some top searched countries in the world?", "Which countries are most popular for travel?"],
+          "responses": ["There are many countries that are popular for travel, but some of the top searched countries in the world are the United States, France, Italy, Spain, Thailand, and Japan. These countries offer a wide range of attractions and experiences, from stunning natural landscapes to rich cultural heritage. Would you like me to provide more information about any of these countries?"],
+          "context": ""
+        },
+
+        {"tag": "search_us",
+          "patterns": ["Tell me more about the United States", "What are some top tourist destinations in the US?"],
+          "responses": ["The United States is a vast and diverse country with many amazing places to visit. Some of the top tourist destinations in the US are New York City, Los Angeles, Las Vegas, the Grand Canyon, and Disney World in Florida. Would you like me to provide more information about any of these places?"],
+          "context": ""
+        },
+
+        {"tag": "search_france",
+          "patterns": ["Tell me more about France", "What are some top tourist destinations in France?"],
+          "responses": ["France is a beautiful and historic country with many amazing places to visit. Some of the top tourist destinations in France are Paris, the French Riviera, the Palace of Versailles, Mont Saint-Michel, and the Loire Valley. Would you like me to provide more information about any of these places?"],
+          "context": ""
+        },
+
+        {"tag": "search_italy",
+          "patterns": ["Tell me more about Italy", "What are some top tourist destinations in Italy?"],
+          "responses": ["Italy is a country of art, culture, history, and stunning natural beauty. Some of the top tourist destinations in Italy are Rome, Florence, Venice, the Amalfi Coast, and the Tuscan countryside. Would you like me to provide more information about any of these places?"],
+          "context": ""
+        },
+
+        {"tag": "search_france",
+          "patterns": ["Can you tell me about France?", "What are some popular attractions in France?"],
+          "responses": ["France is a beautiful country with a rich history and culture. Some of the popular tourist attractions in France are the Eiffel Tower in Paris, the Palace of Versailles, the French Riviera, and the Loire Valley. Would you like me to provide more information about any of these places?"],
+          "context": ""
+        },
+
+        {"tag": "search_spain",
+          "patterns": ["What are some must-visit places in Spain?", "Tell me more about Spain."],
+          "responses": ["Spain is a country with a diverse landscape and rich culture. Some of the must-visit places in Spain are Barcelona, Madrid, Seville, Granada, and the Costa del Sol. Would you like me to provide more information about any of these places?"],
+          "context": ""
+        },
+
+        {"tag": "search_china",
+          "patterns": ["What are some famous landmarks in China?", "Can you tell me about the culture in China?"],
+          "responses": ["China is a country with a rich cultural heritage and many famous landmarks. Some of the famous landmarks in China are the Great Wall, the Terracotta Warriors, and the Forbidden City. The culture in China is very diverse and is characterized by its unique language, cuisine, and customs. Would you like me to provide more information about any of these places or aspects of Chinese culture?"],
+          "context": ""
+        },
+
+        {"tag": "search_australia",
+          "patterns": ["What are some popular tourist destinations in Australia?", "Tell me more about Australia."],
+          "responses": ["Australia is a country with a unique wildlife, stunning landscapes, and vibrant cities. Some of the popular tourist destinations in Australia are Sydney, the Great Barrier Reef, Uluru-Kata Tjuta National Park, and the Gold Coast. Would you like me to provide more information about any of these places?"],
+          "context": ""
+        },
+
+        {"tag": "search_uk",
+          "patterns": ["What are some top attractions in the UK?", "Can you tell me about the culture in the UK?"],
+          "responses": ["The UK is a country with a rich history, stunning scenery, and many top tourist attractions. Some of the top attractions in the UK are the Tower of London, Stonehenge, the Scottish Highlands, and the Lake District. The culture in the UK is diverse and is influenced by its long history and many traditions. Would you like me to provide more information about any of these places or aspects of British culture?"],
+          "context": ""
+        },
+
+        {"tag": "search_data_science",
+          "patterns": ["What is data science?", "Tell me more about data science", "Why is data science important?"],
+          "responses": ["Data science is an interdisciplinary field that involves the use of statistical and computational methods to extract insights and knowledge from data. It is important because it helps organizations make informed decisions, optimize processes, and identify new opportunities. Would you like me to provide more information about specific areas within data science?"],
+          "context": ""
+        },
+
+        {"tag": "search_place_usa",
+          "patterns": ["Tell me about the USA", "What are some popular tourist destinations in the USA?"],
+          "responses": ["The USA is a vast and diverse country with a wealth of tourist attractions. Some of the top tourist destinations in the USA are New York City, Los Angeles, Las Vegas, Washington D.C., and Hawaii. Would you like me to provide more information about any of these places?"],
+          "context": ""
+        },
+
+        {"tag": "capital_of_france",
+          "patterns": ["What is the capital of France?", "Which city is the capital of France?"],
+          "responses": ["The capital of France is Paris."],
+          "context": ""
+        },
+
+        {"tag": "largest_ocean",
+          "patterns": ["What is the largest ocean?", "Which ocean is the biggest?"],
+          "responses": ["The largest ocean in the world is the Pacific Ocean."],
+          "context": ""
+        },
+
+        {"tag": "who_discovered_electricity",
+          "patterns": ["Who discovered electricity?", "Who is the father of electricity?", "What is the name of the person who discovered electricity?"],
+          "responses": ["Benjamin Franklin is often credited with discovering electricity, although many other scientists and inventors also made important contributions."],
+          "context": ""
+        },
+
+        {"tag": "what_is_a_light_year",
+          "patterns": ["What is a light year?", "How far is a light year?"],
+          "responses": ["A light year is the distance that light travels in one year, which is approximately 5.88 trillion miles or 9.46 trillion kilometers."],
+          "context": ""
+        },
+
+        {"tag": "what_is_evolution",
+          "patterns": ["What is evolution?", "How do organisms evolve?",  "How does evolution work?"],
+          "responses": ["Evolution is the process by which species change over time through a process of natural selection and genetic variation. Organisms evolve through the accumulation of small genetic changes that are passed down from one generation to the next."],
+          "context": ""
+        },
+
+        {"tag": "what_is_gravity",
+          "patterns": ["What is gravity?", "How does gravity work?"],
+          "responses": ["Gravity is a force that exists between any two objects in the universe. The strength of this force depends on the mass and distance between the objects. Objects with greater mass exert a stronger gravitational force, and objects that are closer together exert a stronger force as well. Gravity is what keeps planets in orbit around stars and holds galaxies together."],
+          "context": ""
+        },
+
+        {"tag": "what_is_the_meaning_of_life",
+          "patterns": ["What is the meaning of life?", "Why are we here?","What's the purpose of existence?"],
+          "responses": ["The meaning of life is a philosophical question that has been debated by thinkers for centuries. Some people believe that there is no inherent meaning to life, and that we must create our own meaning through our experiences and relationships. Others believe that there is a larger purpose or plan that we are meant to fulfill, such as serving a higher power or contributing to the greater good of society."],
+          "context": ""
+        },
+
+        {"tag": "what_is_dark_matter",
+          "patterns": ["What is dark matter?", "How do we know that dark matter exists?"],
+          "responses": ["Dark matter is a hypothetical form of matter that is thought to make up approximately 85% of the total matter in the universe. It does not emit, absorb, or reflect any light or other forms of electromagnetic radiation, which makes it very difficult to detect. However, its presence can be inferred from its gravitational effects on visible matter, such as stars and galaxies."],
+          "context": ""
+        },
+
+        {"tag": "climate_change",
+          "patterns": ["What is climate change?", "How is climate change affecting the planet?", "What can we do to combat climate change?"],
+          "responses": ["Climate change is the long-term alteration of global weather patterns, particularly increases in temperature, due to human activities such as burning fossil fuels and deforestation. Climate change is causing rising sea levels, more frequent and severe natural disasters, and the extinction of many species. To combat climate change, we can reduce our carbon footprint by using renewable energy, driving less, and eating less meat, among other things."],
+          "context": ""
+        },
+
+        {"tag": "artificial_intelligence",
+          "patterns": ["What is artificial intelligence?","What is AI", "How is AI being used in today's world?", "What are the potential risks and benefits of AI?"],
+          "responses": ["Artificial intelligence refers to the ability of machines to perform tasks that typically require human intelligence, such as learning, reasoning, and problem-solving. AI is being used in many areas today, including healthcare, finance, transportation, and customer service. While AI has the potential to revolutionize many industries and improve people's lives, it also raises concerns about job displacement, privacy, and potential biases in decision-making."],
+          "context": ""
+        },
+
+        {"tag": "space_exploration",
+          "patterns": ["What is space exploration?", "Why is space exploration important?", "What have we learned from space exploration?"],
+          "responses": ["Space exploration is the investigation of the cosmos beyond Earth's atmosphere. Space exploration is important because it can help us understand the origins of the universe, find new planets and potential life, and develop technologies that can benefit humanity. Through space exploration, we have learned about the structure of the universe, discovered new celestial bodies, and developed technologies that have been used in everyday life, such as GPS and satellite communication."],
+          "context": ""
+        },
+
+        {"tag": "mental_health",
+          "patterns": ["What is mental health?", "Why is mental health important?", "What can we do to improve mental health?"],
+          "responses": ["Mental health refers to a person's overall psychological well-being, including their emotional, social, and cognitive functioning. Mental health is important because it affects how we think, feel, and behave, and can impact our relationships, work, and overall quality of life. To improve mental health, we can practice self-care, seek professional help if needed, connect with others, and promote mental health awareness and advocacy."],
+          "context": ""
+        },
+
+        {"tag": "einstein",
+          "patterns": ["Who is Albert Einstein?", "What is Albert Einstein known for?"],
+          "responses": ["Albert Einstein was a German-born physicist who is widely considered to be one of the most influential scientists of the 20th century. He is best known for his theory of relativity and his famous equation E=mc^2. Einstein was awarded the Nobel Prize in Physics in 1921 for his work on theoretical physics."],
+          "context": ""
+        },
+
+        {"tag": "hawking",
+          "patterns": ["Who is Stephen Hawking?", "What are some of Stephen Hawking's contributions to science?"],
+          "responses": ["Stephen Hawking was an English theoretical physicist, cosmologist, and author. He is known for his work on black holes, quantum mechanics, and the origins of the universe. Hawking was also a popular science communicator and author of several best-selling books, including 'A Brief History of Time'. He was awarded numerous honors and awards for his contributions to science."],
+          "context": ""
+        },
+
+        {"tag": "newton",
+          "patterns": ["Who is Isaac Newton?", "What are some of Isaac Newton's contributions to science?"],
+          "responses": ["Isaac Newton was an English mathematician, physicist, and astronomer who is widely considered to be one of the most influential scientists of all time. He is best known for his work on the laws of motion and universal gravitation. Newton also made significant contributions to the field of optics and the development of calculus."],
+          "context": ""
+        },
+
+        {"tag": "curie",
+          "patterns": ["Who is Marie Curie?", "What are some of Marie Curie's contributions to science?"],
+          "responses": ["Marie Curie was a Polish-born physicist and chemist who is best known for her pioneering work on radioactivity. She was the first woman to be awarded a Nobel Prize, and the first person to win two Nobel Prizes in different fields of science. Curie's discoveries revolutionized the field of chemistry and paved the way for the development of nuclear energy."],
+          "context": ""
+        },
+
+        {"tag": "tesla",
+          "patterns": ["Who is Nikola Tesla?", "What are some of Nikola Tesla's contributions to science?"],
+          "responses": ["Nikola Tesla was a Serbian-American inventor, electrical engineer, mechanical engineer, and futurist who is best known for his contributions to the design of the modern alternating current (AC) electricity supply system. He also made significant contributions to the development of wireless communication and X-ray technology. Tesla is often referred to as one of the most important scientists and inventors in history."],
+          "context": ""
+        },
+
+        {"tag": "ask_einstein",
+          "patterns": ["What did Albert Einstein contribute to physics?", "Tell me about Albert Einstein's work"],
+          "responses": ["Albert Einstein is widely considered one of the most influential physicists of the 20th century. He is best known for developing the theory of general relativity and the famous equation E=mc², which describes the relationship between energy and mass. Einstein also made significant contributions to the development of quantum mechanics and statistical mechanics."],
+          "context": ""
+        },
+
+        {"tag": "ask_newton",
+          "patterns": ["What are some of Isaac Newton's contributions to physics?", "Tell me about Isaac Newton's work"],
+          "responses": ["Isaac Newton is considered one of the most influential scientists in history. He is best known for his laws of motion and universal gravitation, which laid the foundation for classical mechanics. Newton also made important contributions to the study of light and optics."],
+          "context": ""
+        },
+
+        {"tag": "ask_hawking",
+          "patterns": ["What did Stephen Hawking contribute to physics?", "Tell me about Stephen Hawking's work","What were Stephen Hawking's most significant contributions to physics?"],
+          "responses": ["Stephen Hawking was a theoretical physicist and cosmologist who made significant contributions to the understanding of black holes and the origins of the universe. He developed a theory of black hole radiation, known as Hawking radiation, and wrote several popular science books, including 'A Brief History of Time.'","Stephen Hawking was a British physicist who made significant contributions to the study of black holes and the origins of the universe. He proposed that black holes emit radiation, now known as Hawking radiation, and his work helped to reconcile quantum mechanics with general relativity. He also wrote several popular science books, including A Brief History of Time."],
+          "context": ""
+        },
+
+        {"tag": "ask_curie",
+          "patterns": ["What did Marie Curie contribute to physics?", "Tell me about Marie Curie's work"],
+          "responses": ["Marie Curie was a physicist and chemist who made groundbreaking discoveries in the field of radioactivity. She was the first woman to win a Nobel Prize, and the first person to win two Nobel Prizes in different fields (physics and chemistry). Her work laid the foundation for many modern technologies, including X-rays and radiation therapy.", "Marie Curie was a Polish-French physicist and chemist who made pioneering contributions to the field of radioactivity. She discovered the elements polonium and radium, and her work led to the development of the first X-ray machines. She was the first woman to win a Nobel Prize, and she went on to win a second Nobel Prize in chemistry."],
+          "context": ""
+        },
+
+        {"tag": "ask_bohr",
+          "patterns": ["What did Niels Bohr contribute to physics?", "Tell me about Niels Bohr's work"],
+          "responses": ["Niels Bohr was a Danish physicist who made significant contributions to the development of quantum mechanics and atomic physics. He proposed a model of the atom in which electrons orbit the nucleus in discrete energy levels, and he developed the principle of complementarity, which states that a particle can exhibit both wave-like and particle-like properties."],
+          "context": ""
+        },
+
+        {"tag": "ask_maxwell",
+          "patterns": ["What did James Clerk Maxwell contribute to physics?", "Tell me about James Clerk Maxwell's work"],
+          "responses": ["James Clerk Maxwell was a Scottish physicist who developed the theory of electromagnetism, which describes the behavior of electric and magnetic fields. He showed that electric and magnetic fields are two aspects of the same phenomenon and developed a set of equations, now known as Maxwell's equations, that describe the behavior of these fields. His work led to the development of technologies such as radio and television."],
+          "context": ""
+        },
+
+        {"tag": "elon_musk",
+          "patterns": ["Tell me about Elon Musk", "What companies has Elon Musk founded?"],
+          "responses": ["Elon Musk is a South African-born American entrepreneur and business magnate. He is the founder and CEO of SpaceX, co-founder and CEO of Tesla, and co-founder of several other companies, including Neuralink and The Boring Company."],
+          "context": ""
+        },
+
+        {"tag": "mark_zuckerberg",
+          "patterns": ["Who is Mark Zuckerberg?", "What is Mark Zuckerberg known for?"],
+          "responses": ["Mark Zuckerberg is an American entrepreneur and the co-founder and CEO of Facebook, one of the world's largest social networking platforms. He is also known for his philanthropic efforts, including the creation of the Chan Zuckerberg Initiative with his wife Priscilla Chan."],
+          "context": ""
+        },
+
+        {"tag": "steve_jobs",
+          "patterns": ["Tell me about Steve Jobs", "What companies did Steve Jobs start?"],
+          "responses": ["Steve Jobs was an American entrepreneur and co-founder of Apple Inc., which is known for its innovative and influential products such as the Macintosh computer, the iPod, and the iPhone. He also co-founded Pixar Animation Studios."],
+          "context": ""
+        },
+
+        {"tag": "jeff_bezos",
+          "patterns": ["Who is Jeff Bezos?", "What is Jeff Bezos famous for?"],
+          "responses": ["Jeff Bezos is an American entrepreneur and the founder and CEO of Amazon.com, one of the world's largest online retailers. He is also known for his space exploration company Blue Origin and his ownership of The Washington Post."],
+          "context": ""
+        },
+
+        {"tag": "richard_branson",
+          "patterns": ["Tell me about Richard Branson", "What companies has Richard Branson started?"],
+          "responses": ["Richard Branson is an English entrepreneur and founder of the Virgin Group, which includes more than 400 companies in a wide range of industries, including Virgin Atlantic Airways, Virgin Records, and Virgin Galactic. He is also known for his philanthropic efforts and advocacy for environmental issues."],
+          "context": ""
+        },
+
+        {"tag": "entrepreneur_intro",
+          "patterns": ["What is an entrepreneur?", "Who is considered an entrepreneur?"],
+          "responses": ["An entrepreneur is someone who creates a new business venture or takes an existing business in a new direction. They are known for their innovative ideas and willingness to take risks in pursuit of success."],
+          "context": ""
+        },
+
+        {"tag": "successful_entrepreneurs",
+          "patterns": ["Who are some successful entrepreneurs?", "Can you name some famous entrepreneurs?"],
+          "responses": ["There are many successful entrepreneurs, some of the most well-known include Elon Musk, Steve Jobs, Jeff Bezos, Mark Zuckerberg, and Oprah Winfrey."],
+          "context": ""
+        },
+
+        {"tag": "qualities_of_entrepreneurs",
+          "patterns": ["What are some qualities that successful entrepreneurs share?", "What does it take to be a successful entrepreneur?"],
+          "responses": ["Successful entrepreneurs are often characterized by their creativity, determination, willingness to take risks, and ability to adapt to changing circumstances. They are also typically strong communicators, problem solvers, and possess strong leadership skills."],
+          "context": ""
+        },
+
+        {"tag": "funding_for_entrepreneurs",
+          "patterns": ["How do entrepreneurs get funding for their businesses?", "What are some sources of funding for entrepreneurs?"],
+          "responses": ["Entrepreneurs can obtain funding for their businesses through a variety of sources, including venture capital firms, angel investors, crowdfunding platforms, and traditional bank loans. Some entrepreneurs also use their own savings or seek out grants from government agencies or non-profit organizations."],
+          "context": ""
+        },
+
+        {"tag": "start_a_business",
+          "patterns": ["What are the first steps to starting a business?", "How do I start my own business?"],
+          "responses": ["The first steps to starting a business typically involve conducting market research to determine the demand for your product or service, creating a business plan, and securing funding. You will also need to register your business with the appropriate government agencies and obtain any necessary permits and licenses."],
+          "context": ""
+        },
+
+        {"tag": "state_andhra_pradesh",
+          "patterns": ["Tell me about Andhra Pradesh", "What are some top tourist destinations in Andhra Pradesh?"],
+          "responses": ["Andhra Pradesh is a state located in the southeastern part of India. Some of the top tourist destinations in Andhra Pradesh are the Tirumala Venkateswara Temple, Charminar, and the Borra Caves."],
+          "context": ""
+        },
+
+        {"tag": "state_arunachal_pradesh",
+          "patterns": ["Tell me about Arunachal Pradesh", "What are some top tourist destinations in Arunachal Pradesh?"],
+          "responses": ["Arunachal Pradesh is a state located in the northeastern part of India. Some of the top tourist destinations in Arunachal Pradesh are the Tawang Monastery, Ziro Valley, and the Namdapha National Park."],
+          "context": ""
+        },
+
+        {"tag": "state_assam",
+          "patterns": ["Tell me about Assam", "What are some top tourist destinations in Assam?"],
+          "responses": ["Assam is a state located in the northeastern part of India. Some of the top tourist destinations in Assam are the Kaziranga National Park, Kamakhya Temple, and the Majuli Island."],
+          "context": ""
+        },
+
+        {"tag": "state_bihar",
+          "patterns": ["Tell me about Bihar", "What are some top tourist destinations in Bihar?"],
+          "responses": ["Bihar is a state located in the eastern part of India. Some of the top tourist destinations in Bihar are the Mahabodhi Temple, Nalanda University, and the Patna Museum."],
+          "context": ""
+        },
+
+        {"tag": "state_chhattisgarh",
+          "patterns": ["Tell me about Chhattisgarh", "What are some top tourist destinations in Chhattisgarh?"],
+          "responses": ["Chhattisgarh is a state located in the central part of India. Some of the top tourist destinations in Chhattisgarh are the Chitrakoot Falls, Kanger Valley National Park, and the Sirpur Heritage Site."],
+          "context": ""
+        },
+
+        {"tag": "state_goa",
+          "patterns": ["Tell me about Goa", "What are some top tourist destinations in Goa?"],
+          "responses": ["Goa is a state located in the western part of India. Some of the top tourist destinations in Goa are the beaches of Anjuna, Baga, and Calangute, and the Basilica of Bom Jesus."],
+          "context": ""
+        },
+
+        {"tag": "state_gujarat",
+          "patterns": ["Tell me about Gujarat", "What are some top tourist destinations in Gujarat?"],
+          "responses": ["Gujarat is a state located in the western part of India. Some of the top tourist destinations in Gujarat are the Rann of Kutch, Somnath Temple, and the Sabarmati Ashram."],
+          "context": ""
+        },
+
+        {"tag": "state_haryana",
+          "patterns": ["Tell me about Haryana", "What are some top tourist destinations in Haryana?"],
+          "responses": ["Haryana is a state located in the northern part of India. Some of the top tourist destinations in Haryana are the Sultanpur National Park, Surajkund Mela, and the Mata Mansa Devi Mandir."],
+          "context": ""
+        },
+
+        {"tag": "state_himachal",
+          "patterns": ["Tell me about Himachal Pradesh", "What are some top tourist destinations in Himachal Pradesh?"],
+          "responses": ["Himachal Pradesh is a state located in the northern part of India. Some of the top tourist destinations in Himachal Pradesh are Shimla, Manali, Dalhousie, and Kasauli."],
+          "context": ""
+        },
+
+        {"tag": "state_jharkhand",
+          "patterns": ["Tell me about Jharkhand", "What are some top tourist destinations in Jharkhand?"],
+          "responses": ["Jharkhand is a state located in the eastern part of India. Some of the top tourist destinations in Jharkhand are Betla National Park, Ranchi Hill, and Jagannath Temple."],
+          "context": ""
+        },
+
+        {"tag": "state_karnataka",
+          "patterns": ["Tell me about Karnataka", "What are some top tourist destinations in Karnataka?"],
+          "responses": ["Karnataka is a state located in the southern part of India. Some of the top tourist destinations in Karnataka are Bangalore, Mysore, Hampi, and Coorg."],
+          "context": ""
+        },
+
+        {"tag": "state_kerala",
+          "patterns": ["Tell me about Kerala", "What are some top tourist destinations in Kerala?"],
+          "responses": ["Kerala is a state located in the southern part of India. Some of the top tourist destinations in Kerala are Munnar, Alleppey, Kovalam, and Thekkady."],
+          "context": ""
+        },
+
+        {"tag": "state_madhya",
+          "patterns": ["Tell me about Madhya Pradesh", "What are some top tourist destinations in Madhya Pradesh?"],
+          "responses": ["Madhya Pradesh is a state located in the central part of India. Some of the top tourist destinations in Madhya Pradesh are Khajuraho, Sanchi Stupa, and Bandhavgarh National Park."],
+          "context": ""
+        },
+
+        {"tag": "state_maharashtra",
+          "patterns": ["Tell me about Maharashtra", "What are some top tourist destinations in Maharashtra?"],
+          "responses": ["Maharashtra is a state located in the western part of India. Some of the top tourist destinations in Maharashtra are Mumbai, Pune, Lonavala, and Mahabaleshwar."],
+          "context": ""
+        },
+
+        {"tag": "state_manipur",
+          "patterns": ["Tell me about Manipur", "What are some top tourist destinations in Manipur?"],
+          "responses": ["Manipur is a state located in the northeastern part of India. Some of the top tourist destinations in Manipur are Loktak Lake, Kangla Fort, and Shree Govindajee Temple."],
+          "context": ""
+        },
+
+        {"tag": "state_meghalaya",
+          "patterns": ["Tell me about Meghalaya", "What are some top tourist destinations in Meghalaya?"],
+          "responses": ["Meghalaya is a state located in the northeastern part of India. Some of the top tourist destinations in Meghalaya are Shillong, Cherrapunjee, and Dawki."],
+          "context": ""
+        },
+
+        {"tag": "state_mizoram",
+          "patterns": ["Tell me about Mizoram", "What are some top tourist destinations in Mizoram?"],
+          "responses": ["Mizoram is a state located in the northeastern part of India. It is known for its scenic beauty, rich culture, and delicious cuisine. Some of the top tourist destinations in Mizoram are the Durtlang Hills, the Tamdil Lake, and the Vantawng Falls. Mizoram is also famous for its bamboo and handloom products."],
+          "context": ""
+        },
+
+        {"tag": "state_nagaland",
+          "patterns": ["Tell me about Nagaland", "What are some top tourist destinations in Nagaland?"],
+          "responses": ["Nagaland is a state located in the northeastern part of India. It is known for its diverse tribal cultures, scenic beauty, and traditional handicrafts. Some of the top tourist destinations in Nagaland are the Kohima War Cemetery, the Hornbill Festival, and the Dzukou Valley."],
+          "context": ""
+        },
+
+        {"tag": "state_odisha",
+          "patterns": ["Tell me about Odisha", "What are some top tourist destinations in Odisha?"],
+          "responses": ["Odisha, also known as Orissa, is a state located in the eastern part of India. It is famous for its ancient temples, rich cultural heritage, and scenic beaches. Some of the top tourist destinations in Odisha are the Konark Sun Temple, the Jagannath Temple, and the Chilika Lake."],
+          "context": ""
+        },
+
+        {"tag": "state_punjab",
+          "patterns": ["Tell me about Punjab", "What are some top tourist destinations in Punjab?"],
+          "responses": ["Punjab is a state located in the northern part of India. It is known for its rich history, vibrant culture, and delicious food. Some of the top tourist destinations in Punjab are the Golden Temple, the Wagah Border, and the Jallianwala Bagh."],
+          "context": ""
+        },
+
+        {"tag": "state_rajasthan",
+          "patterns": ["Tell me about Rajasthan", "What are some top tourist destinations in Rajasthan?"],
+          "responses": ["Rajasthan is a state located in the northwestern part of India. It is known for its rich history, vibrant culture, and stunning architecture. Some of the top tourist destinations in Rajasthan are the Amer Fort, the City Palace, and the Hawa Mahal."],
+          "context": ""
+        },
+
+        {"tag": "state_sikkim",
+          "patterns": ["Tell me about Sikkim", "What are some top tourist destinations in Sikkim?"],
+          "responses": ["Sikkim is a state located in the northeastern part of India. It is known for its natural beauty, Buddhist monasteries, and adventure sports. Some of the top tourist destinations in Sikkim are the Tsomgo Lake, the Nathu La Pass, and the Rumtek Monastery."],
+          "context": ""
+        },
+
+        {"tag": "state_tamil_nadu",
+          "patterns": ["Tell me about Tamil Nadu", "What are some top tourist destinations in Tamil Nadu?"],
+          "responses": ["Tamil Nadu is a state located in the southern part of India. It is known for its ancient temples, rich culture, and beautiful beaches. Some of the top tourist destinations in Tamil Nadu are the Meenakshi Temple, the Brihadeeswara Temple, and the Marina Beach."],
+          "context": ""
+        },
+
+        {"tag": "state_telangana",
+          "patterns": ["Tell me about Telangana", "What are some top tourist destinations in Telangana?"],
+          "responses": ["Telangana is a state located in the southern part of India. It is known for its rich history, culture, and beautiful landscapes. Some of the top tourist destinations in Telangana are the Charminar, the Ramoji Film City, and the Golconda Fort."],
+          "context": ""
+        },
+
+        {"tag": "state_tripura",
+          "patterns": ["Tell me about Tripura", "What are some top tourist destinations in Tripura?"],
+          "responses": ["Tripura is a state located in the northeastern part of India. It is known for its rich culture and beautiful natural landscapes. Some of the top tourist destinations in Tripura are the Unakoti Hill, the Neermahal Palace, and the Sepahijala Wildlife Sanctuary."],
+          "context": ""
+        },
+
+        {"tag": "state_uttarakhand",
+          "patterns": ["Tell me about Uttarakhand", "What are some top tourist destinations in Uttarakhand?"],
+          "responses": ["Uttarakhand is a state located in the northern part of India. It is known for its scenic beauty, snow-capped mountains, and ancient temples. Some of the top tourist destinations in Uttarakhand are the Valley of Flowers National Park, the Jim Corbett National Park, and the Char Dham Yatra."],
+          "context": ""
+        },
+
+        {"tag": "state_westbengal",
+          "patterns": ["Tell me about West Bengal", "What are some top tourist destinations in West Bengal?"],
+          "responses": ["West Bengal is a state located in the eastern part of India. It is known for its rich history, culture, and beautiful natural landscapes. Some of the top tourist destinations in West Bengal are the Sunderbans National Park, the Victoria Memorial, and the Darjeeling Himalayan Railway."],
+          "context": ""
+        },
+
+        {"tag": "state_jammu",
+          "patterns": ["Tell me about Jammu and Kashmir", "What are some top tourist destinations in Jammu and Kashmir?"],
+          "responses": ["Jammu and Kashmir is a state located in the northern part of India. It is known for its breathtaking natural beauty and diverse cultural heritage. Some of the top tourist destinations in Jammu and Kashmir are the Dal Lake, the Mughal Gardens, and the Vaishno Devi temple."],
+          "context": ""
+        },
+
+        {"tag": "savings",
+          "patterns": ["What are some good ways to save money?", "How can I increase my savings?"],
+          "responses": ["There are many ways to save money and increase your savings. Some tips include setting a budget, cutting unnecessary expenses, automating savings deposits, taking advantage of employer matching programs, and using cashback credit cards or apps."],
+          "context": ""
+        },
+
+        {"tag": "investing",
+          "patterns": ["What are some good investment options?", "How can I start investing?"],
+          "responses": ["There are many good investment options, such as stocks, bonds, mutual funds, real estate, and alternative investments. To start investing, you should educate yourself about different investment options, set investment goals, and create a diversified portfolio that aligns with your risk tolerance and investment objectives."],
+          "context": ""
+        },
+
+        {"tag": "credit_score",
+          "patterns": ["What is a credit score?", "How can I improve my credit score?"],
+          "responses": ["A credit score is a three-digit number that represents your creditworthiness and the likelihood that you will repay your debts on time. A good credit score can help you qualify for loans and credit cards with better terms and interest rates. To improve your credit score, you should pay your bills on time, keep your credit card balances low, and avoid opening too many new accounts at once."],
+          "context": ""
+        },
+
+        {"tag": "retirement_planning",
+          "patterns": ["How can I plan for retirement?", "What are some good retirement planning options?"],
+          "responses": ["To plan for retirement, you should estimate your retirement expenses and income, create a retirement budget, and start saving and investing as early as possible. Good retirement planning options include 401(k)s, IRAs, annuities, and Social Security benefits."],
+          "context": ""
+        },
+
+        {"tag": "taxes",
+          "patterns": ["What are some common tax deductions?", "How can I save on taxes?"],
+          "responses": ["Common tax deductions include mortgage interest, charitable contributions, state and local taxes, and medical expenses. To save on taxes, you should maximize your tax deductions and credits, take advantage of tax-advantaged accounts like IRAs and HSAs, and consult with a tax professional to ensure that you are taking advantage of all available tax strategies."],
+          "context": ""
+        },
+
+        {"tag": "credit_score",
+          "patterns": ["What is a credit score?", "How is a credit score calculated?"],
+          "responses": ["A credit score is a numerical representation of a person's creditworthiness. It is calculated based on factors such as payment history, credit utilization, length of credit history, and types of credit. A higher credit score indicates that a person is more likely to repay debts on time."],
+          "context": ""
+        },
+
+        {"tag": "investment_portfolio",
+          "patterns": ["What is an investment portfolio?", "How can I build a diversified investment portfolio?"],
+          "responses": ["An investment portfolio is a collection of investments such as stocks, bonds, and mutual funds that an individual or organization owns. A diversified investment portfolio reduces risk by spreading investments across different asset classes and industries. A financial advisor can help you build a diversified investment portfolio."],
+          "context": ""
+        },
+
+        {"tag": "compound_interest",
+          "patterns": ["What is compound interest?", "How does compound interest work?"],
+          "responses": ["Compound interest is the interest earned on both the principal amount and any accumulated interest. It is calculated based on the initial principal amount, the interest rate, and the time period. The longer the time period, the greater the impact of compound interest. Over time, compound interest can significantly increase the value of an investment."],
+          "context": ""
+        },
+
+        {"tag": "financial_planning",
+          "patterns": ["What is financial planning?", "Why is financial planning important?"],
+          "responses": ["Financial planning is the process of setting financial goals, creating a budget, and developing a plan to achieve those goals. It involves assessing your current financial situation, identifying your priorities, and creating a roadmap for your financial future. Financial planning is important because it helps you make informed decisions about your money and ensures that you are prepared for the future."],
+          "context": ""
+        },
+
+        {"tag": "401k_plan",
+          "patterns": ["What is a 401(k) plan?", "How does a 401(k) plan work?"],
+          "responses": ["A 401(k) plan is a retirement savings plan offered by many employers. It allows employees to contribute a portion of their pre-tax income to a retirement account. The money in the account grows tax-free until it is withdrawn in retirement. Many employers also offer a matching contribution, which can help employees save more for retirement."],
+          "context": ""
+        },
+
+        {"tag": "subject_math",
+          "patterns": ["Tell me about math", "What are some common math concepts?"],
+          "responses": ["Mathematics is the study of numbers, quantities, and shapes. Some common math concepts include algebra, geometry, calculus, statistics, and probability."],
+          "context": ""
+        },
+
+        {"tag": "subject_history",
+          "patterns": ["Tell me about history", "What are some major historical events?"],
+          "responses": ["History is the study of past events, particularly human affairs. Some major historical events include the American Revolution, World War I and II, the Industrial Revolution, and the Renaissance."],
+          "context": ""
+        },
+
+        {"tag": "subject_science",
+          "patterns": ["Tell me about science", "What are some branches of science?"],
+          "responses": ["Science is the study of the natural world and how it works. Some branches of science include biology, chemistry, physics, geology, and astronomy."],
+          "context": ""
+        },
+
+        {"tag": "subject_literature",
+          "patterns": ["Tell me about literature", "What are some famous literary works?"],
+          "responses": ["Literature is written works, especially those considered of superior or lasting artistic merit. Some famous literary works include To Kill a Mockingbird by Harper Lee, The Great Gatsby by F. Scott Fitzgerald, and Pride and Prejudice by Jane Austen."],
+          "context": ""
+        },
+
+        {"tag": "subject_philosophy",
+          "patterns": ["Tell me about philosophy", "What are some famous philosophers?"],
+          "responses": ["Philosophy is the study of the fundamental nature of knowledge, reality, and existence. Some famous philosophers include Plato, Aristotle, Immanuel Kant, Friedrich Nietzsche, and Jean-Paul Sartre."],
+          "context": ""
+        },
+
+        {"tag": "singer_beyonce",
+          "patterns": ["Tell me about Beyonce", "What are some popular songs by Beyonce?"],
+          "responses": ["Beyonce is an American singer, songwriter, and actress. She rose to fame as a member of the girl group Destiny's Child before embarking on a successful solo career. Some of her popular songs are 'Crazy in Love,' 'Single Ladies,' and 'Halo.'"],
+          "context": ""
+        },
+
+        {"tag": "singer_michael_jackson",
+          "patterns": ["Tell me about Michael Jackson", "What are some popular songs by Michael Jackson?"],
+          "responses": ["Michael Jackson was an American singer, songwriter, and dancer. He is considered one of the greatest entertainers of all time. Some of his popular songs are 'Thriller,' 'Billie Jean,' and 'Beat It.'"],
+          "context": ""
+        },
+
+        {"tag": "musician_mozart",
+          "patterns": ["Tell me about Wolfgang Amadeus Mozart", "What are some of Mozart's famous compositions?"],
+          "responses": ["Wolfgang Amadeus Mozart was an Austrian composer who is considered one of the greatest composers of all time. Some of his famous compositions include 'Eine Kleine Nachtmusik,' 'The Marriage of Figaro,' and 'The Magic Flute.'"],
+          "context": ""
+        },
+
+        {"tag": "singer_ariana_grande",
+          "patterns": ["Tell me about Ariana Grande", "What are some popular songs by Ariana Grande?"],
+          "responses": ["Ariana Grande is an American singer and actress. She began her career as a child actress before transitioning to a successful music career. Some of her popular songs are 'Thank U, Next,' '7 Rings,' and 'Side to Side.'"],
+          "context": ""
+        },
+
+        {"tag": "musician_beethoven",
+          "patterns": ["Tell me about Ludwig van Beethoven", "What are some of Beethoven's famous compositions?"],
+          "responses": ["Ludwig van Beethoven was a German composer who is considered one of the greatest composers of all time. Some of his famous compositions include 'Moonlight Sonata,' 'Symphony No. 5,' and 'Für Elise.'"],
+          "context": ""
+        },
+
+        {"tag": "ask_ed_sheeran",
+          "patterns": ["Tell me about Ed Sheeran", "What are some popular songs by Ed Sheeran?"],
+          "responses": ["Ed Sheeran is an English singer-songwriter known for his blend of pop, folk, and hip-hop music. Some of his popular songs include 'Shape of You', 'Thinking Out Loud', and 'Perfect'."],
+          "context": ""
+        },
+
+        {"tag": "ask_taylor_swift",
+          "patterns": ["Tell me about Taylor Swift", "What are some popular songs by Taylor Swift?"],
+          "responses": ["Taylor Swift is an American singer-songwriter known for her country and pop music. Some of her popular songs include 'Love Story', 'Shake It Off', and 'Blank Space'."],
+          "context": ""
+        },
+
+        {"tag": "ask_elton_john",
+          "patterns": ["Tell me about Elton John", "What are some popular songs by Elton John?"],
+          "responses": ["Elton John is an English singer, songwriter, and pianist known for his flamboyant stage presence and diverse musical styles. Some of his popular songs include 'Rocket Man', 'Tiny Dancer', and 'Can You Feel the Love Tonight'."],
+          "context": ""
+        },
+
+        {"tag": "ask_drake",
+          "patterns": ["Tell me about Drake", "What are some popular songs by Drake?"],
+          "responses": ["Drake is a Canadian rapper, singer, songwriter, and actor known for his introspective lyrics and catchy beats. Some of his popular songs include 'God's Plan', 'Hotline Bling', and 'In My Feelings'."],
+          "context": ""
+        },
+
+        {"tag": "ask_cardi_b",
+          "patterns": ["Tell me about Cardi B", "What are some popular songs by Cardi B?"],
+          "responses": ["Cardi B is an American rapper, songwriter, and actress known for her unapologetic and raw lyrics. Some of her popular songs include 'Bodak Yellow', 'I Like It', and 'WAP'."],
+          "context": ""
+        },
+
+        {"tag": "disease_asthma",
+          "patterns": ["What is asthma?", "Tell me about asthma"],
+          "responses": ["Asthma is a chronic respiratory disease that affects the airways that carry air in and out of the lungs. It causes breathing difficulties, wheezing, coughing, and tightness in the chest."],
+          "context": ""
+        },
+
+        {"tag": "disease_diabetes",
+          "patterns": ["What is diabetes?", "Tell me about diabetes"],
+          "responses": ["Diabetes is a chronic disease that affects how your body processes glucose, which is a type of sugar. It occurs when the body either does not produce enough insulin or is unable to use insulin effectively, leading to high blood sugar levels."],
+          "context": ""
+        },
+
+        {"tag": "word_pandemic",
+          "patterns": ["What does pandemic mean?", "Define pandemic"],
+          "responses": ["A pandemic is an outbreak of a disease that occurs over a wide geographic area and affects an exceptionally high proportion of the population."],
+          "context": ""
+        },
+
+        {"tag": "word_epidemic",
+          "patterns": ["What does epidemic mean?", "Define epidemic"],
+          "responses": ["An epidemic is a sudden outbreak of a disease that affects a large number of people in a particular community or region."],
+          "context": ""
+        },
+
+        {"tag": "musician_johncoltrane",
+          "patterns": ["Tell me about John Coltrane", "What are some of John Coltrane's popular songs?"],
+          "responses": ["John Coltrane was an American jazz saxophonist and composer. Some of his popular songs include 'Giant Steps', 'My Favorite Things', and 'Acknowledgement'."],
+          "context": ""
+        },
+
+        {"tag": "mental_disorder_depression",
+          "patterns": ["What is depression?", "What are the symptoms of depression?"],
+          "responses": ["Depression is a common mental disorder characterized by persistent sadness, loss of interest or pleasure, feelings of guilt or low self-worth, disturbed sleep or appetite, low energy, and poor concentration. Some people may also experience physical symptoms such as headaches and chronic pain. If left untreated, depression can have a negative impact on daily activities and can even lead to suicidal thoughts or behaviors."],
+          "context": ""
+        },
+
+        {"tag": "mental_disorder_anxiety",
+          "patterns": ["What is anxiety?", "What are the symptoms of anxiety?"],
+          "responses": ["Anxiety is a normal and often healthy emotion. However, when a person feels excessive, ongoing anxiety and worries about everyday situations, it may be a sign of an anxiety disorder. Common symptoms of anxiety disorders include feelings of nervousness, restlessness, or tension, a sense of impending danger or panic, an increased heart rate, rapid breathing, sweating, and trembling. Anxiety disorders can interfere with daily activities and can be treated with therapy or medication."],
+          "context": ""
+        },
+
+        {"tag": "mental_disorder_bipolar",
+          "patterns": ["What is bipolar disorder?", "What are the symptoms of bipolar disorder?"],
+          "responses": ["Bipolar disorder is a mental disorder characterized by extreme mood swings, from highs (mania or hypomania) to lows (depression). Symptoms of bipolar disorder include periods of elevated or irritable mood, grandiosity, decreased need for sleep, racing thoughts, distractibility, impulsivity, and high-risk behaviors. During depressive episodes, individuals may experience feelings of sadness, worthlessness, and thoughts of death or suicide. Treatment for bipolar disorder includes mood stabilizers, antipsychotics, and therapy."],
+          "context": ""
+        },
+
+        {"tag": "mental_disorder_schizophrenia",
+          "patterns": ["What is schizophrenia?", "What are the symptoms of schizophrenia?"],
+          "responses": ["Schizophrenia is a chronic and severe mental disorder that affects how a person thinks, feels, and behaves. Symptoms of schizophrenia include delusions, hallucinations, disordered thinking and speech, and disorganized behavior. People with schizophrenia may also have reduced emotions, social withdrawal, and lack of motivation. Treatment for schizophrenia includes antipsychotic medication and therapy."],
+          "context": ""
+        },
+
+        {"tag": "mental_disorder_ptsd",
+          "patterns": ["What is post-traumatic stress disorder (PTSD)?", "What are the symptoms of PTSD?"],
+          "responses": ["Post-traumatic stress disorder (PTSD) is a mental disorder that can develop after experiencing or witnessing a traumatic event. Symptoms of PTSD can include flashbacks, nightmares, severe anxiety, and uncontrollable thoughts about the event. People with PTSD may also avoid situations or activities that remind them of the trauma, and may feel numb or detached from others. Treatment for PTSD can include therapy, medication, and support groups."],
+          "context": ""
+        },
+
+        {"tag": "mental_disorder_ocd",
+          "patterns": ["What is obsessive-compulsive disorder (OCD)?", "What are the symptoms of OCD?"],
+          "responses": ["Obsessive-compulsive disorder (OCD) is a mental disorder characterized by unwanted and intrusive thoughts or images (obsessions) that lead to repetitive behaviors or mental acts (compulsions). Symptoms of OCD include persistent, excessive, and irrational thoughts, fears, or doubts (obsessions) that can cause significant anxiety or distress, as well as repetitive behaviors or mental acts (compulsions) that are often performed in an attempt to alleviate the anxiety or distress caused by the obsessions. These compulsions can take many forms, such as repeated checking, cleaning, or counting, and can significantly interfere with daily life."],
+          "context": ""
+        },
+
+        {"tag": "currency_usd",
+          "patterns": ["What is USD?", "Tell me about the US dollar"],
+          "responses": ["USD stands for United States dollar, which is the official currency of the United States of America. It is the most traded currency in the world and is also used as a reserve currency by many countries. The US dollar is issued by the Federal Reserve System and is represented by the symbol $. It is subdivided into 100 cents."],
+          "context": ""
+        },
+
+        {"tag": "currency_eur",
+          "patterns": ["What is EUR?", "Tell me about the Euro"],
+          "responses": ["EUR stands for Euro, which is the official currency of the European Union. It is used by 19 of the 27 member countries of the European Union and is the second-most traded currency in the world. The Euro is issued by the European Central Bank and is represented by the symbol €. It is subdivided into 100 cents."],
+          "context": ""
+        },
+
+        {"tag": "currency_gbp",
+          "patterns": ["What is GBP?", "Tell me about the British pound"],
+          "responses": ["GBP stands for Great British pound, which is the official currency of the United Kingdom. It is the oldest currency in continuous use and is also known as the pound sterling. The British pound is issued by the Bank of England and is represented by the symbol £. It is subdivided into 100 pence."],
+          "context": ""
+        },
+
+        {"tag": "currency_jpy",
+          "patterns": ["What is JPY?", "Tell me about the Japanese yen"],
+          "responses": ["JPY stands for Japanese yen, which is the official currency of Japan. It is the third-most traded currency in the world and is also used as a reserve currency by many countries. The Japanese yen is issued by the Bank of Japan and is represented by the symbol ¥. It is subdivided into 100 sen."],
+          "context": ""
+        },
+
+        {"tag": "currency_inr",
+          "patterns": ["What is INR?", "Tell me about the Indian rupee"],
+          "responses": ["INR stands for Indian rupee, which is the official currency of India. It is the 20th-most traded currency in the world and is issued by the Reserve Bank of India. The Indian rupee is represented by the symbol ₹ and is subdivided into 100 paise."],
+          "context": ""
+        },
+
+        {"tag": "currency_aud",
+          "patterns": ["What is AUD?", "Tell me about the Australian dollar"],
+          "responses": ["AUD stands for Australian dollar, which is the official currency of Australia. It is also used in some of the Pacific Islands and is the fifth-most traded currency in the world. The Australian dollar is issued by the Reserve Bank of Australia and is represented by the symbol $. It is subdivided into 100 cents."],
+          "context": ""
+        },
+
+        {"tag": "currency_cad",
+          "patterns": ["What is CAD?", "Tell me about the Canadian dollar"],
+          "responses": ["CAD stands for Canadian dollar, which is the official currency of Canada. It is the sixth-most traded currency in the world and is also used in some of the French territories of Canada. The Canadian dollar is issued by the Bank of Canada and is represented by the symbol $. It is subdivided into 100 cents."],
+          "context": ""
+        },
+
+        {"tag": "currency_usd",
+          "patterns": ["What is USD?", "What is the symbol of US dollar?"],
+          "responses": ["USD stands for United States Dollar. It is the official currency of the United States of America and is also used as a standard currency in international transactions. The symbol for the US dollar is $."],
+          "context": ""
+        },
+
+        {"tag": "currency_gbp",
+          "patterns": ["What is GBP?", "What is the symbol of British pound?"],
+          "responses": ["GBP stands for Great British Pound. It is the official currency of the United Kingdom and is also used in some other British territories. The symbol for the British pound is £."],
+          "context": ""
+        },
+
+        {"tag": "currency_jpy",
+          "patterns": ["What is JPY?", "What is the symbol of Japanese yen?"],
+          "responses": ["JPY stands for Japanese Yen. It is the official currency of Japan and is also widely used in international financial transactions. The symbol for the Japanese yen is ¥."],
+          "context": ""
+        },
+
+        {"tag": "currency_aud",
+          "patterns": ["What is AUD?", "What is the symbol of Australian dollar?"],
+          "responses": ["AUD stands for Australian Dollar. It is the official currency of Australia, as well as some Pacific Island nations. The symbol for the Australian dollar is $. "],
+          "context": ""
+        },
+
+        {"tag": "currency_cny",
+          "patterns": ["What is CNY?", "What is the symbol of Chinese yuan?"],
+          "responses": ["CNY stands for Chinese Yuan Renminbi. It is the official currency of China and is also known as the Chinese yuan. The symbol for the Chinese yuan is ¥."],
+          "context": ""
+        },
+        {"tag": "oop",
+          "patterns": ["What is OOP?", "Explain object-oriented programming."],
+          "responses": ["OOP stands for Object-Oriented Programming. It is a programming paradigm that is based on the concept of objects, which can contain data and code. In OOP, programs are designed by creating objects that interact with each other to perform tasks. OOP provides several benefits, such as code reusability, encapsulation, and easier maintenance."],
+          "context": ""
+        },
+        {"tag": "python",
+          "patterns": ["What is Python?", "Tell me about the Python programming language."],
+          "responses": ["Python is a high-level, interpreted programming language that was first released in 1991. It is known for its simplicity, readability, and versatility. Python is widely used in web development, scientific computing, data analysis, artificial intelligence, and many other fields. It has a large and active community of developers, which contributes to its popularity."],
+          "context": ""
+        },
+        {"tag": "binary_search",
+          "patterns": ["What is a binary search?", "Explain how binary search works."],
+          "responses": ["Binary search is a search algorithm used to find a particular element in a sorted array or list. It works by repeatedly dividing the search interval in half until the target element is found or the search interval is empty. The algorithm compares the target value to the middle element of the sorted array and determines which half of the array the target is likely to be in. It then repeats this process on the remaining half of the array until the target element is found."],
+          "context": ""
+        },
+        {"tag": "philosophy_existentialism",
+          "patterns": ["What is existentialism?", "What are the main ideas of existentialism?"],
+          "responses": ["Existentialism is a philosophical movement that emphasizes individual existence, freedom, and choice. It is focused on the individual's experience of the world and their responsibility for making choices that define who they are. The main ideas of existentialism include the belief that existence precedes essence, meaning that individuals create their own meaning in life through their actions and choices, and that human beings are inherently free and responsible for their own lives."],
+          "context": ""
+        },
+        {"tag": "philosophy_stoicism",
+          "patterns": ["What is stoicism?", "What are the main principles of stoicism?"],
+          "responses": ["Stoicism is a philosophical school of thought that emphasizes the development of self-control and resilience in the face of adversity. The main principles of stoicism include the belief in the importance of reason, the idea that virtue is the highest good, and the acceptance of what is beyond our control. Stoics also believe in the importance of living in harmony with nature and cultivating a sense of inner calm and tranquility."],
+          "context": ""
+        },
+        {"tag": "philosophy_nihilism",
+          "patterns": ["What is nihilism?", "What are the main tenets of nihilism?"],
+          "responses": ["Nihilism is a philosophical belief that life has no inherent meaning or value. The main tenets of nihilism include the rejection of religious and moral principles, the belief that all knowledge is subjective, and the idea that there is no objective standard of truth. Nihilists also tend to believe that existence is inherently absurd and meaningless."],
+          "context": ""
+        },
+        {"tag": "philosophy_feminism",
+          "patterns": ["What is feminism?", "What are the main principles of feminism?"],
+          "responses": ["Feminism is a social and political movement that seeks to promote gender equality and the rights of women. The main principles of feminism include the belief in the social, political, and economic equality of the sexes, the rejection of gender stereotypes, and the recognition of women's contributions to society. Feminists also advocate for women's reproductive rights, the elimination of violence against women, and the representation of women in all areas of society."],
+          "context": ""
+        },
+        {"tag": "philosophy_humanism",
+          "patterns": ["What is humanism?", "What are the main ideas of humanism?"],
+          "responses": ["Humanism is a philosophical and ethical stance that emphasizes the value and agency of human beings, individually and collectively. The main ideas of humanism include the belief in reason, ethics, and justice, and the importance of individual freedom and responsibility. Humanists also advocate for the promotion of human welfare, the protection of human rights, and the pursuit of knowledge and truth."],
+          "context": ""
+        },
+        {"tag": "famous_events",
+          "patterns": ["Tell me about famous historical events", "What are some significant events in history?"],
+          "responses": ["There have been many significant historical events throughout human history. Some of the most famous include:"],
+          "context": ""
+        },
+        {"tag": "ww1",
+          "patterns": ["What was World War I?", "Tell me about the First World War"],
+          "responses": ["World War I, also known as the Great War, was a global war that lasted from 1914 to 1918. It was one of the deadliest conflicts in history, with an estimated 9 million soldiers and 7 million civilians losing their lives. The war involved many of the world's major powers, divided into two opposing alliances: the Allies (led by France, Russia, and the United Kingdom) and the Central Powers (led by Germany, Austria-Hungary, and the Ottoman Empire). The war marked the end of the empires of Germany, Austria-Hungary, Russia, and the Ottoman Empire, and set the stage for the rise of the Soviet Union, as well as the events leading up to World War II."],
+          "context": ""
+        },
+        {"tag": "ww2",
+          "patterns": ["What was World War II?", "Tell me about the Second World War"],
+          "responses": ["World War II was a global war that lasted from 1939 to 1945. It was the deadliest conflict in human history, with an estimated 70-85 million fatalities, including civilians and military personnel. The war involved many of the world's nations, divided into two opposing military alliances: the Allies (led by the United States, the United Kingdom, and the Soviet Union) and the Axis (led by Germany, Italy, and Japan). World War II led to the formation of the United Nations and the emergence of the United States and the Soviet Union as superpowers."],
+          "context": ""
+        },
+        {"tag": "french_revolution",
+          "patterns": ["What was the French Revolution?", "Tell me about the French Revolution"],
+          "responses": ["The French Revolution was a period of radical social and political upheaval in France from 1789 to 1799. The Revolution led to the end of the monarchy in France and the rise of the First French Republic. The Revolution was driven by widespread dissatisfaction with the monarchy and the aristocracy, as well as by ideas of liberty, equality, and fraternity. The French Revolution had a profound impact on the course of European history and inspired revolutionary movements around the world."],
+          "context": ""
+        },
+        {"tag": "american_revolution",
+          "patterns": ["What was the American Revolution?", "Tell me about the American Revolution"],
+          "responses": ["The American Revolution was a political upheaval in the 18th century in which the Thirteen Colonies broke from British rule and formed the United States of America. The Revolution began in 1765 with protests against British taxation without representation, and escalated into armed conflict in 1775. The Revolution was a turning point in world history, as it established the first modern democratic nation and inspired similar movements in Europe and Latin America."],
+          "context": ""
+        },
+        {"tag": "renaissance",
+          "patterns": ["What was the Renaissance?", "Tell me about the Renaissance"],
+          "responses": ["The Renaissance was a period of cultural and intellectual rebirth that began in Italy in the 14th century and spread throughout Europe. The Renaissance marked the transition from the Middle Ages to the modern era and was characterized by a renewed interest in classical art, literature, and learning. The Renaissance had a profound impact on European history, as it saw the emergence of great artists, scientists, and thinkers who made significant contributions to fields such as painting, sculpture, music, philosophy, and science. Some of the most famous figures of the Renaissance include Leonardo da Vinci, Michelangelo, Galileo Galilei, William Shakespeare, and Johannes Gutenberg, who invented the printing press."],
+          "context": ""
+        }
 ]
 }
